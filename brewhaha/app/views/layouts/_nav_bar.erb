@@ -1,5 +1,14 @@
-<%= navbar fluid: true do %>
-    <%= vertical do %>
-    <%= link_to 'Home', 'landing/index' %>
-    <% end %>
+<%= navbar do %>
+        <%= vertical do %>
+            <%= link_to 'Home', root_path %>
+            <%= link_to 'Map', maps_coffee_map_path %>
+        <% end %>
+        <%= horizontal do %>
+            <%= nav class: 'navbar-right' do %>
+                <%= dropdown 'Account Settings' do %>
+                    <%= link_to 'Create Account', account_create_account_path %>
+                    <%= link_to 'Profile', account_my_profile_path %>
+                <% end %>
+            <% end %>
+        <% end %>
 <% end %>

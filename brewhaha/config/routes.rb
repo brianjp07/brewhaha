@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
+  get 'account/my_profile'
+
+  get 'account/create_account'
+
+  get 'orders/order_page'
+
+  get 'maps/coffee_map'
+
   get 'landing/index'
 
   devise_for :users
-  get 'say/hello'
 
-  get 'say/goodbye'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'say#hello'
+  root 'landing#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
