@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landing/index'
+
   devise_for :users
   get 'say/hello'
 
