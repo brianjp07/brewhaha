@@ -3,10 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* GLOBAL STYLES
 -------------------------------------------------- */
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
+.cover-container {
+  text-align: center;
 }
