@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/make_order'
+
   get 'account/my_profile'
 
   get 'account/create_account'
