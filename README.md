@@ -2,10 +2,10 @@
 ## Ruby on Rails Project
 
 ## Roles
-* Overall Project Manager:
-* Coding Manager:
-* Testing Manager:
-* Documentation:
+* Overall Project Manager: Abby Haseley
+* Coding Manager: Cameron Adams
+* Testing Manager: Ryan Bates
+* Documentation: William Osler
 
 ## Contributions
 Please list who did what for each part of the project.
