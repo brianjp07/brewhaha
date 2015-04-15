@@ -1,43 +1,44 @@
 <h2>Sign up</h2>
 
-<p>We think you'll love it here. We need to collect some basic information
-below to get started:</p>
+<div class="row">
+  <div class="col-sm-6">
+    <p>We think you'll love it here. We need to collect some basic information
+    below to get started:</p>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :regular) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.select :role, options_for_select([['I want to order coffee', :consumer ], ["I want to deliver coffee", :producer]]),
+          label: "What do you want to do?" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :name, label: "Your name" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", label: (@validatable ? "Password (" + @minimum_password_length.to_s + " characters minimum)" : "Password") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+      </div>
+  <div class="col-sm-6 hidden-xs login-image">
+    <%= image_tag "woman_drinking_coffee.jpg", class: "img-responsive" %>
+    <div class="centered"><em>Image courtesty of Tetra Pak, used under a CC-BY-SA 2.0 license</em></div>
   </div>
-
-  <div class="field">
-    <%= f.label "Are you looking to order coffee, or provide others with coffee?" %><br />
-    <%= f.select :role, options_for_select([['I want to order coffee', :consumer ], ["I want to deliver", :producer]]) %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Your Name" %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
