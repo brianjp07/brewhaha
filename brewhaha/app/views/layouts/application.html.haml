@@ -8,7 +8,7 @@
     = csrf_meta_tags
 
   %body
-    = render :partial => 'layouts/nav_bar'
+    = render(:partial => "layouts/nav_bar") if current_user
     .container
       - if notice
         = alert_box notice, context: :success

@@ -1,19 +1,8 @@
 <%= navbar do %>
-        <%= vertical do %>
-            <%= link_to 'Home', root_path %>
-            <%= link_to 'Map', maps_coffee_map_path %>
-            <%= link_to 'Orders', orders_order_page_path %>
-            <%= link_to 'Create Order',orders_make_order_path %>
-        
-        <% end %>
-        <%= horizontal do %>
-            <%= nav class: 'navbar-right' do %>
-                <%= dropdown 'Account Settings' do %>
-                    <%= link_to 'Create Account', new_user_registration_path %>
-                    <%= link_to 'Sign In', new_user_session_path %>
-
-                    <%= link_to 'Profile', account_my_profile_path %>
-                <% end %>
-            <% end %>
-        <% end %>
+  <%= nav class: 'navbar-right' do %>
+      <%= link_to 'View Order', orders_order_page_path if current_user.consumer? %>
+      <%= link_to 'Place Order', orders_order_page_path if current_user.producer? %>
+      <%= link_to 'Sign Out', new_user_session_path %>
+      <%= link_to 'Profile', account_my_profile_path %>
+      <% end %>
 <% end %>
