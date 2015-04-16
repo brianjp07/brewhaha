@@ -6,4 +6,11 @@ class User < ActiveRecord::Base
 
   # Enum for the user role
   enum role: { consumer: 1, producer: 2 }
+
+  # Check phone number
+  validates :phone, format: {
+    with: /\A\d{3}-\d{3}-\d{4}\z/,
+    message: "Enter your phone number in the following format: ###-###-####"
+  }
+
 end
