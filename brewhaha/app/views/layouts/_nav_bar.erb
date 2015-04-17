@@ -1,12 +1,17 @@
 <%= navbar do %>
   <%= vertical do %>
-      <%= icon :user, id:'iconID' %>
-
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag "logo.svg", class: "img-responsive" %>
+    </a>
+    <%= link_to 'Brewhaha', root_path %>
+  <% end %>
+  <%= horizontal do %>
+    <%= nav class: 'navbar-right' do %>
+        <%= link_to 'View Orders', orders_order_page_path if current_user.consumer? %>
+        <%= link_to 'Place Order', orders_order_page_path if current_user.producer? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <%= link_to 'Profile', edit_user_registration_path %>
+>>>>>>> origin/william-usermodel
       <% end %>
-  <%= nav class: 'navbar-right' do %>
-      <%= link_to 'View Orders', orders_order_page_path if current_user.producer? %>
-      <%= link_to 'Place Orders', orders_order_page_path if current_user.consumer? %>
-      <%= link_to 'Sign Out', session_delete_path %>
-      <%= link_to 'Profile', account_my_profile_path %>
-      <% end %>
+    <% end %>
 <% end %>
