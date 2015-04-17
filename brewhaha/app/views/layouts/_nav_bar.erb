@@ -1,8 +1,12 @@
 <%= navbar do %>
+  <%= vertical do %>
+      <%= icon :user, id:'iconID' %>
+
+      <% end %>
   <%= nav class: 'navbar-right' do %>
-      <%= link_to 'View Order', orders_order_page_path if current_user.consumer? %>
-      <%= link_to 'Place Order', orders_order_page_path if current_user.producer? %>
-      <%= link_to 'Sign Out', new_user_session_path %>
+      <%= link_to 'View Orders', orders_order_page_path if current_user.producer? %>
+      <%= link_to 'Place Orders', orders_order_page_path if current_user.consumer? %>
+      <%= link_to 'Sign Out', session_delete_path %>
       <%= link_to 'Profile', account_my_profile_path %>
       <% end %>
 <% end %>
