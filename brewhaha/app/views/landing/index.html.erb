@@ -5,13 +5,17 @@
     <p class="lead">Sign in or create an account to begin</p>
 
 
-    <p>
-      <div style="float: left; width: auto; padding-left: 200px">
-    <%= button_to 'Sign In',new_user_session_path, :class => "button", :method => :get, context: :primary %>
-      </div>
-    <div style="float: right; width: auto; padding-right: 200px">
-    <%= button_to 'Create Account',new_user_registration_path, :class => "button", :method => :get, context: :primary %>
-    </div>
-    </p>
+    <div class="row">
+            <div class="col-md-4">
+
+            <%= button_to 'Sign In',new_user_session_path, :class => "button", :method => :get, context: :primary %>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+              <%= button_to 'Create Account',new_user_registration_path, :class => "button", :method => :get, context: :primary %>
+            </div>
+          </div>
     </div>
 </div>
