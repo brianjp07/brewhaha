@@ -8,8 +8,8 @@
 </div>
   <%= horizontal do %>
     <%= nav class: 'navbar-right' do %>
-        <%= link_to 'View Orders', orders_order_page_path if current_user.consumer? %>
-        <%= link_to 'Place Order', orders_order_page_path if current_user.producer? %>
+        <%= link_to 'View Orders', orders_order_page_path if current_user.producer? %>
+        <%= link_to 'Place Order', orders_order_page_path if current_user.consumer? %>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         <%= link_to 'Profile', edit_user_registration_path %>
       <% end %>
