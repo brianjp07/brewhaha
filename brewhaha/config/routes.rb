@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/order_conf'
+
   get 'orders/order_create'
 
   get 'orders/order_fullfill'
