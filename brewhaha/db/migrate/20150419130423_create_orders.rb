@@ -4,8 +4,15 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :quantity,          null: false, default: 1
       t.datetime :order_created
       t.string :location,           null: false, default: ""
-      t.string
-      t.timestamps null: false
+      t.integer :consumer_id
+      t.datetime :expires_at
+      t.datetime :fulfilled_time
+
+      t.timestamps
     end
   end
+end
+
+class Order < ActiveRecord::Base
+  attr_accessible :quantity, :order_created, :location, :consumer_id, :expires_at, :fulfilled_time
 end
