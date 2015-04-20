@@ -1,13 +1,14 @@
 class AddUsersToOrder < ActiveRecord::Migration
   def change
-
-    add_column :orders, :consumer, :string
-    add_column :orders, :producer, :string
-
-    #belongs_to :consumer, :class_name => "User"
-    #belongs_to :producer, :class_name => "User"
-
-    #has_many :assigned_tickets, :class_name => "Ticket", :foreign_key => "assignee_id"
-    #has_many :submitted_tickets, :class_name => "Ticket", :foreign_key => "submitter_id"
+    add_column :orders, :producer_id, :string
+    add_index :orders, :producer_id
   end
+end
+
+class Order < ActiveRecord::Base
+  belongs_to :user, :foreign_key => user.id
+end
+
+class User < ActiveRecord::Base
+  has_many :orders
 end
