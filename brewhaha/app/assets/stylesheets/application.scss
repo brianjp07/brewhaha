@@ -16,8 +16,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "devise";
-@import "landing";
+
 
 #rightButton{
   float: right;
+}
+
+.brand{
+
+  height: 40px;
+
+}
+#logo-fix{
+  height: 1px;
+
 }

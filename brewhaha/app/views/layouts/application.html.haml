@@ -3,7 +3,7 @@
   %head
     %title Brewhaha
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-
+    = stylesheet_link_tag    'landing' if controller_name == 'landing'
 
     = csrf_meta_tags
 
