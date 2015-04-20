@@ -1,26 +1,29 @@
 <h1>Orders#make_order</h1>
 <p>Find me in app/views/orders/make_order.html.erb</p>
 <div class="container">
-  <h2>Form control: select</h2>
-  <p>The form below contains two dropdown menus (select lists):</p>
+  <h2>What would you like?</h2>
   <form role="form">
     <div class="form-group">
-      <label for="sel1">Select list (select one):</label>
-      <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
+      <button id= "order-button" class="btn btn-default btn-lg" >Coffee - black</button>
       <br>
-      <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
-      <select multiple class="form-control" id="sel2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <h3>How many would you like?</h3>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input class="form-control" name="amount" placeholder="i.e. 50" size="30" type="number"  />
+      </div>
+      <h3>Where would you like it dropped off?</h3>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control" name="location" placeholder="i.e. 1600 Pennsylvania Avenue Northwest, Washington, DC 20500" size="30" type="address" />
+      </div>
+      <h3>What time do you want it by?</h3>
+      <div class="form-group">
+        <label for="expiration">Expiration</label>
+        <input class="form-control" name="expiration" placeholder="i.e. 4:20 pm" size="30" type="time" />
+      </div>
+      <div>
+        <%= button_to 'Submit my order!',orders_order_page_path, :class => "button", :method => :get, layout: :block, :id => "submit-order-button" %>
+      </div>
     </div>
   </form>
 </div>
