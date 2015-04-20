@@ -4,7 +4,10 @@ class OrdersController < ApplicationController
   end
 
   def make_order
-    @order = Order.new
-    @order.quantity = params
+    order = Order.new
+    order.quantity = params[:amount]
+    order.location = params[:location]
+    #order.expiration = params[:expiration]
+    #order.consumer_id = current_user.id
   end
 end
