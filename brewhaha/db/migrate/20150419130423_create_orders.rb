@@ -13,6 +13,3 @@ class CreateOrders < ActiveRecord::Migration
   end
 end
 
-class Order < ActiveRecord::Base
-  attr_accessible :quantity, :order_created, :location, :consumer_id, :expiration, :fulfilled_time
-end

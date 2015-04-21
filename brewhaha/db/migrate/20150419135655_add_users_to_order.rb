@@ -5,10 +5,3 @@ class AddUsersToOrder < ActiveRecord::Migration
   end
 end
 
-class Order < ActiveRecord::Base
-  belongs_to :user, :foreign_key => user.id
-end
-
-class User < ActiveRecord::Base
-  has_many :orders
-end
