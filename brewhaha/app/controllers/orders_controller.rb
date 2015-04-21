@@ -4,7 +4,13 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    if !current_user
+      redirect_to '/users/sign_in'
+    elsif current_user.consumer?
+      @orders = Order.where(consumer: current_user)
+    else
+      @orders = Order.where(producer: current_user)
+    end
   end
 
   # GET /orders/1
@@ -25,6 +31,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.consumer = current_user
 
     respond_to do |format|
       if @order.save

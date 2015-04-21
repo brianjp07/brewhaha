@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421152108) do
+ActiveRecord::Schema.define(version: 20150421200320) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "quantity",       default: 1,  null: false
     t.datetime "time_fulfilled"
     t.string   "location",       default: "", null: false
     t.integer  "expiration"
-    t.integer  "consumer_id"
-    t.integer  "producer_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "consumer_id"
+    t.integer  "producer_id"
   end
+
+  add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id"
+  add_index "orders", ["producer_id"], name: "index_orders_on_producer_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
