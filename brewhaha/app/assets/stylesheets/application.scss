@@ -23,15 +23,55 @@
   float: right;
 }
 
-.brand{
-
+.brand {
   height: 40px;
-
 }
-#logo-fix{
+
+#logo-fix {
   height: 1px;
 
 }
-.navbar navbar-default{
-  background-opacity: rgba(248, 248, 248, 0);
+
+.navbar navbar-default {
+  border-radius: 0px;
+}
+
+.container.transparent {
+  background: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-image: image-url("coffee.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+html {
+  min-height: 100%;
+}
+
+body > div.container {
+  padding-bottom: 2em;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+a.navbar-brand {
+  padding: 0.25em;
+  img {
+    height: 100%;
+  }
+}
+
+.alert {
+  margin-top: 1em;
+}
+
+#brandname {
+  padding-top: 1.25em;
+  padding-left: 1em;
+}
+
+body a {
+  color: #659323;
 }
