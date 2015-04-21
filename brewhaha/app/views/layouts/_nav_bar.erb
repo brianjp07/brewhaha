@@ -1,16 +1,15 @@
 <%= navbar do %>
-<div class="navbar-inner">
-  <div class="container-fluid">
-  <a class="navbar-brand" id="logo-fix" href="<%= root_path if current_user.consumer?%><%= root_path if current_user.producer?%>">
-    <%= image_tag "logo.svg", class: "brand" %>
-  </a>
-</div>
-</div>
+  <%= vertical do %>
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag "logo.svg", class: "img-responsive" %>
+    </a>
+    <%= link_to 'Brewhaha', root_path, id: "brandname" %>
+  <% end %>
   <%= horizontal do %>
     <%= nav class: 'navbar-right' do %>
-        <%= link_to 'View Orders', orders_order_page_path if current_user.producer? %>
-        <%= link_to 'Place Order', orders_order_page_path if current_user.consumer? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :destroy %>
+        <%= link_to 'View Orders', orders_order_list_path if current_user.producer? %>
+        <%= link_to 'Place Order', orders_make_order_path if current_user.consumer? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         <%= link_to 'Profile', edit_user_registration_path %>
       <% end %>
     <% end %>

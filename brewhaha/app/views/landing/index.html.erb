@@ -1,11 +1,12 @@
+<% content_for :transparent, true  %>
 <div class="cover-container">
 
   <div class="inner cover">
     <h1 class="cover-heading">Let's get some coffee</h1>
     <p class="lead">Sign in or create an account to begin</p>
 
-
     <div class="row">
+
             <div class="col-md-4">
 
             <%= button_to 'Sign In',new_user_session_path, :class => "button", :method => :get, context: :primary %>
@@ -18,4 +19,5 @@
             </div>
           </div>
     </div>
+
 </div>
