@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   resources :orders
-  get 'orders/make_order'
+  get 'cart/cart_page'
 
-  get 'account/my_profile'
-
-  get 'account/create_account'
-
-  get 'orders/order_page'
+  get 'cart/cart_payment'
 
   get 'maps/coffee_map'
 
