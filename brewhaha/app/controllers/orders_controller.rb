@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     elsif current_user.consumer?
       @orders = Order.where(consumer: current_user)
     else
-      @orders = Order.where(producer: current_user)
+      @orders = Order.where(producer: nil)
     end
   end
 
