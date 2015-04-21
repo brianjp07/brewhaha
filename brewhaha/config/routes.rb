@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   get 'orders/make_order'
 
   get 'account/my_profile'

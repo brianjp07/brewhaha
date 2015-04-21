@@ -1,9 +1,49 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
-  test "should get order_page" do
-    get :order_page
+  setup do
+    @order = orders(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:orders)
+  end
+
+  test "should get new" do
+    get :new
     assert_response :success
   end
 
+  test "should create order" do
+    assert_difference('Order.count') do
+      post :create, order: { consumer_id: @order.consumer_id, expiration: @order.expiration, location: @order.location, producer_id: @order.producer_id, quantity: @order.quantity, time_fulfilled: @order.time_fulfilled }
+    end
+
+    assert_redirected_to order_path(assigns(:order))
+  end
+
+  test "should show order" do
+    get :show, id: @order
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @order
+    assert_response :success
+  end
+
+  test "should update order" do
+    patch :update, id: @order, order: { consumer_id: @order.consumer_id, expiration: @order.expiration, location: @order.location, producer_id: @order.producer_id, quantity: @order.quantity, time_fulfilled: @order.time_fulfilled }
+    assert_redirected_to order_path(assigns(:order))
+  end
+
+  test "should destroy order" do
+    assert_difference('Order.count', -1) do
+      delete :destroy, id: @order
+    end
+
+    assert_redirected_to orders_path
+  end
 end
