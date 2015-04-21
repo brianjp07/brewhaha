@@ -8,18 +8,24 @@
       <br>
       <h3>How many would you like?</h3>
       <div class="form-group">
-        <label for="quantity">Quantity</label>
-        <input class="form-control" name="amount" placeholder="i.e. 50" size="30" type="number"  />
+        <%=form_for @order do |f| %>
+        <%= f.label :quantity, "Amount"%>
+        <%= f.number_field :quantity, size:40 %>
+        <% end %>
       </div>
       <h3>Where would you like it dropped off?</h3>
       <div class="form-group">
-        <label for="location">Location</label>
-        <input class="form-control" name="location" placeholder="i.e. 1600 Pennsylvania Avenue Northwest, Washington, DC 20500" size="30" type="address" />
+        <%=form_for @order do |f| %>
+            <%= f.label :location, "Location"%>
+            <%= f.text_field :location, size:60 %>
+        <% end %>
       </div>
       <h3>What time do you want it by?</h3>
       <div class="form-group">
-        <label for="expiration">Expiration</label>
-        <input class="form-control" name="expiration" placeholder="i.e. 4:20 pm" size="30" type="time" />
+        <%=form_for @order do |f| %>
+            <%= f.label :expiration, "Expires at"%>
+            <%= f.time_field :expiration, size:40 %>
+        <% end %>
       </div>
       <div>
         <%= button_to 'Submit my order!',orders_order_page_path, :class => "button", :method => :get, layout: :block, :id => "submit-order-button" %>
