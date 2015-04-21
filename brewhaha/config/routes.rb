@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
-  get 'orders/order_conf'
-
-  get 'orders/order_create'
-
-  get 'orders/order_fullfill'
-
-  get 'orders/order_list'
-
-  get 'orders/order_selection'
-
+  resources :orders
   get 'orders/make_order'
 
   get 'account/my_profile'
@@ -22,8 +13,6 @@ Rails.application.routes.draw do
   get 'landing/index'
 
   devise_for :users
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

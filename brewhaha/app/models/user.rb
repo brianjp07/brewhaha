@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
     message: "Enter your phone number in the following format: ###-###-####"
   }
 
+  has_many :orders
 end
