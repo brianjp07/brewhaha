@@ -16,8 +16,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:account_update) << :phone
   end
+
   #This redirects to the order type selection after user signs in.
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || orders_order_selection_path
+    if current_user
+      if current_user.producer?
+        request.env['omniauth.origin'] || stored_location_for(resource) || orders_path
+      else
+        request.env['omniauth.origin'] || stored_location_for(resource) || new_order_path
+      end
+    end
   end
 end
