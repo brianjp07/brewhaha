@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cart/cart_page'
+
+  get 'cart/cart_payment'
+
   get 'orders/order_conf'
 
   get 'orders/order_create'

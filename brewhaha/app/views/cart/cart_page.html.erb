@@ -1,0 +1,26 @@
+<h1>Your Shopping Cart</h1>
+
+<h4>You've Selected:</h4>
+
+
+<p>If you're all set and ready to fulfill this order go ahead and click
+the 'Fulfill' button. If you've decided you don't want to fulfill this
+order or you want to select a different one, click the 'Go Back' button
+</p>
+
+
+<div class="row">
+  <div class = "col-md-6">
+    <div>
+    <%= button_to 'Cancel Order',orders_order_page_path, :class => "button", :method => :get, context: :primary %>
+    </div>
+
+    <div class = "col-md-6">
+
+    </div>
+
+    <div>
+    <%= button_to 'Fulfill Order',cart_cart_payment_path, :class => "button", :method => :get, context: :primary %>
+    </div>
+  </div>
+</div>
