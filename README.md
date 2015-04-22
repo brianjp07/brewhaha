@@ -25,3 +25,6 @@ After creating your account, you will go to a page where you can create an order
 
 ==>Choose Deliver
 You will be directed to a page where there is a list of orders. !!!!!!CAMERON AND RYAN ADD YOUR STUFF HERE!!!!!!
+
+##Testing
+Testing was done completely manually by all members for their individual parts. There were no automated tests cases because this process was more easily tested manually.
