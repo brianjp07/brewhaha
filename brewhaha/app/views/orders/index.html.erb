@@ -79,7 +79,7 @@
                   <td class="col-md-4"><a class="loca"><%= order.location %></a></td>
                   <td class="col-md-2"><%= order.expiration %></td>
                   <td class="col-md-1"><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <td class="col=md-1"><%= link_to 'Fulfill Order' %></td>
+                  <td class="col=md-1"><%= button_to 'Fulfill',cart_cart_page_path, :class => "button", :method => :get, context: :primary %></td>
                 </tr>
             <% end %>
             </tbody>
