@@ -20,7 +20,7 @@ order or you want to select a different one, click the 'Go Back' button
     </div>
 
     <div>
-    <%= button_to 'Fulfill Order',cart_cart_payment_path, :class => "button", :method => :get, context: :primary %>
+    <%= button_to 'Fulfill Order',cart_pay_url(params[:order_id]), :class => "button", :method => :get, context: :primary %>
     </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :orders
-  get 'cart/cart_page'
+  get 'cart/cart_page/:order_id' => 'cart#cart_page', as: :cart_confirm
 
-  get 'cart/cart_payment'
+  get 'cart/cart_payment/:order_id' => 'cart#cart_payment', as: :cart_pay
 
   get 'maps/coffee_map'
 
