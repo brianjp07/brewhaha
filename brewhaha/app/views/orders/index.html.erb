@@ -27,7 +27,7 @@
     }
 
     function codeAddress() {
-        var address = this.getValue();
+        var address = this.text;
         geocoder.geocode( {address:address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
@@ -43,10 +43,13 @@
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    var locations = document.getElementsByClassName("loca");
-    for(var index = 0; index < locations.length; index++) {
-        locations[index].addEventListener('click', codeAddress, false);
-    }
+    // Wait for DOM ready to assign listeners
+    $(function() {
+      var locations = document.getElementsByClassName("loca");
+      for(var index = 0; index < locations.length; index++) {
+          locations[index].addEventListener('click', codeAddress, false);
+      }
+    });
 </script>
 <p id="notice"><%= notice %></p>
 <div class="container">

@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.consumer = current_user
+    @order.status = "unassigned"
 
     respond_to do |format|
       if @order.save
