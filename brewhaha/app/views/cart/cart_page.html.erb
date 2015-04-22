@@ -1,6 +1,6 @@
 <h1>Your Shopping Cart</h1>
 
-<h4>You've Selected:</h4>
+<h4>You've Selected An Order</h4>
 
 
 <p>If you're all set and ready to fulfill this order go ahead and click
@@ -12,7 +12,7 @@ order or you want to select a different one, click the 'Go Back' button
 <div class="row">
   <div class = "col-md-6">
     <div>
-    <%= button_to 'Cancel Order',orders_order_page_path, :class => "button", :method => :get, context: :primary %>
+    <%= button_to 'Cancel Order',orders_path, :class => "button", :method => :get, context: :primary %>
     </div>
 
     <div class = "col-md-6">
