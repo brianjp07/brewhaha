@@ -39,10 +39,10 @@ After creating your account, you will go to a page where you can create an order
 
 ==>Choose Deliver
 You will be directed to a page where there is a list of orders. On this page, there will be a table containing a list of orders, as well as an embedded Google map. By clicking on the location link in a specific order, the map will update to that location.
-There is also the option for the producer to fulfill the order or delete it as well. By fulfilling the order, the user will be...!!!!RYAN TODO!!!!!!
+There is also the option for the producer to fulfill the order or delete it as well. By fulfilling the order, the user will then be held responsible for delivering the order. They are given a confirmation page and the user is then charged. The producer can then go back to the order page to fulfill more orders as they please.
 
 
-!!!!!!CAMERON AND RYAN ADD YOUR STUFF HERE!!!!!!
+!!!!!!CAMERON YOUR STUFF HERE!!!!!!
 
 
 
