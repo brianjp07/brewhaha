@@ -26,11 +26,15 @@ module Brewhaha
     config.active_job.queue_adapter = :delayed_job
 
     config.after_initialize do
-      # Delete all the old tasks that may be left over
-      Delayed::Backend::ActiveRecord::Job.where(queue: "expiration").destroy_all
+      begin
+        # Delete all the old tasks that may be left over
+        Delayed::Backend::ActiveRecord::Job.where(queue: "expiration").destroy_all
 
-      # Start the new task
-      OrderExpirationCheckerJob.perform_later
+        # Start the new task
+        OrderExpirationCheckerJob.perform_later
+      rescue
+        # Table not set up yet
+      end
     end
   end
 end
