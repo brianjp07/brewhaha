@@ -1,35 +1,91 @@
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<style>
+    .panel-default {
+        height: 450px;
+        overflow: auto;
+        width: 100%;
+    }
+    #map-canvas {
+        display: block;
+        height: 450px;
+        width: 97%;
+    }
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<script>
+    var geocoder;
+    var map;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(39.9996319, -83.0131547);
+        var mapOptions = {
+            zoom: 14,
+            center: latlng
+        }
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    }
+
+    function codeAddress() {
+        var address = this.getValue();
+        geocoder.geocode( {address:address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    var locations = document.getElementsByClassName("loca");
+    for(var index = 0; index < locations.length; index++) {
+        locations[index].addEventListener('click', codeAddress, false);
+    }
+</script>
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Current Orders</h3>
+          </div>
+          <table class="table table-fixed">
+            <thead>
+            <tr>
+              <th class="col-md-2">Quantity</th>
+              <th class="col-md-2">Time Fulfilled</th>
+              <th class="col-md-5">Location</th>
+              <th class="col-md-2">Expiration</th>
+              <th class="col-md-1"></th>
+            </thead>
 
-<h1>Listing Orders</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Quantity</th>
-      <th>Time fulfilled</th>
-      <th>Location</th>
-      <th>Expiration</th>
-      <th>Consumer</th>
-      <th>Producer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.quantity %></td>
-        <td><%= order.time_fulfilled %></td>
-        <td><%= order.location %></td>
-        <td><%= order.expiration %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+            <tbody>
+            <% @orders.each do |order| %>
+                <tr>
+                  <td class="col-md-2"><%= order.quantity %></td>
+                  <td class="col-md-2"><%= order.time_fulfilled %></td>
+                  <td class="col-md-5"><a class="loca"><%= order.location %></a></td>
+                  <td class="col-md-2"><%= order.expiration %></td>
+                  <td class="col-md-1"><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <br>
+          <%= link_to 'New Order', new_order_path %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="map-canvas"></div>
+    </div>
+  </div>
+</div>
