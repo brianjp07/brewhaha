@@ -23,7 +23,13 @@ module Brewhaha
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.active_job.queue_adapter = :delayed_job
+
     config.after_initialize do
+      # Delete all the old tasks that may be left over
+      Delayed::Backend::ActiveRecord::Job.where(queue: "expiration").destroy_all
+
+      # Start the new task
       OrderExpirationCheckerJob.perform_later
     end
   end

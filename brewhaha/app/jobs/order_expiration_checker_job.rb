@@ -1,10 +1,9 @@
 class OrderExpirationCheckerJob < ActiveJob::Base
-  queue_as :default
+  queue_as :expiration
 
   def perform(*args)
-    puts "Doing the thing!!!!!!!!!!!!"
-    Order.where(status: :unassigned).each do |order|
-      if order.created_at + order.expiration.minutes >= Time.now
+    Order.where(status: "unassigned").each do |order|
+      if order.created_at + order.expiration.minutes <= Time.now
         order.status = "expired"
         order.save
       end

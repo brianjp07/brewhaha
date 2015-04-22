@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.consumer = current_user
+    @order.status = "unassigned"
 
     respond_to do |format|
       if @order.save
@@ -61,10 +62,18 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
+    # Only let consumers delete their own orders
+    if current_user.nil? || current_user.producer || @order.consumer != current_user then
+      respond_to do |format|
+        format.html { redirect_to orders_url, alert: 'You are not allowed to delete that order.' }
+        format.json { head :forbidden }
+      end
+    else
+      @order.destroy
+      respond_to do |format|
+        format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -76,6 +85,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:quantity, :time_fulfilled, :location, :expiration, :consumer_id, :producer_id)
+      params.require(:order).permit(:quantity, :location, :expiration)
     end
 end
