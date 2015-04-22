@@ -48,3 +48,18 @@ There is also the option for the producer to fulfill the order or delete it as w
 
 ##Testing
 Testing was done completely manually by all members for their individual parts. There were no automated tests cases because this process was more easily tested manually.
+
+## Technologies Used
+
+This project uses the following extra rubygems and resources:
+* boostrap-sass: A CSS foundation library in SASS
+* devise: User management
+* bh: Helper methods for bootstrap
+* haml: A dry, clean alternative to HTML
+* delayed-job: Backend for running Active Jobs
+
+In addition, we used the following new features of rails:
+* ActiveJob (4.2) - Run background jobs to check for expired orders
+* ActiveRecord Enums (4.1) - Use convenient enum syntax for ActiveRecord objects
+  (User.role and Order.status)
+
