@@ -45,10 +45,10 @@
 
     // Wait for DOM ready to assign listeners
     $(function() {
-      var locations = document.getElementsByClassName("loca");
-      for(var index = 0; index < locations.length; index++) {
-          locations[index].addEventListener('click', codeAddress, false);
-      }
+        var locations = document.getElementsByClassName("loca");
+        for(var index = 0; index < locations.length; index++) {
+            locations[index].addEventListener('click', codeAddress, false);
+        }
     });
 </script>
 <p id="notice"><%= notice %></p>
@@ -65,8 +65,9 @@
             <tr>
               <th class="col-md-2">Quantity</th>
               <th class="col-md-2">Time Fulfilled</th>
-              <th class="col-md-5">Location</th>
+              <th class="col-md-4">Location</th>
               <th class="col-md-2">Expiration</th>
+              <th class="col-md-1"></th>
               <th class="col-md-1"></th>
             </thead>
 
@@ -75,9 +76,10 @@
                 <tr>
                   <td class="col-md-2"><%= order.quantity %></td>
                   <td class="col-md-2"><%= order.time_fulfilled %></td>
-                  <td class="col-md-5"><a class="loca"><%= order.location %></a></td>
+                  <td class="col-md-4"><a class="loca"><%= order.location %></a></td>
                   <td class="col-md-2"><%= order.expiration %></td>
                   <td class="col-md-1"><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td class="col=md-1"><%= link_to 'Fulfill Order' %></td>
                 </tr>
             <% end %>
             </tbody>
