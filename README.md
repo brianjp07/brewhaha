@@ -25,8 +25,9 @@ To start the server, `cd` into the brewhaha directory and:
     # Setup the database
     rake db:setup
 
-    # Start background job processing
-    bin/delayed_job start
+    # Start background job processing (if you have just cloned the project, skip this step)
+    bin/delayed_job start 
+    
 
     # Finally, start the rails server
     rails s
