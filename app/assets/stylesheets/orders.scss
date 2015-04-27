@@ -1,0 +1,22 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#order-button{
+  background-color: #BBBBBB;
+}
+
+#order-button:active {
+  background-color: #666666;
+}
+
+#submit-order-button {
+  background-color: #730E15;
+  color: white;
+}
+.cover-container {
+  text-align: center;
+}
+.form-control{
+  background-color: rgba(255, 255, 255, 0.34);
+}

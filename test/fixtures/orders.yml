@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  time_fulfilled: 2015-04-21 11:21:08
+  location: MyString
+  expiration: 2015-04-21 11:21:08
+  consumer_id: 1
+  producer_id: 1
+
+two:
+  quantity: 1
+  time_fulfilled: 2015-04-21 11:21:08
+  location: MyString
+  expiration: 2015-04-21 11:21:08
+  consumer_id: 1
+  producer_id: 1

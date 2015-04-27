@@ -1,0 +1,51 @@
+<h2>Sign up</h2>
+
+<div class="row">
+  <div class="col-sm-6">
+    <p>We think you'll love it here. We need to collect some basic information
+    below to get started:</p>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :regular) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div>
+        <%= f.select :role, options_for_select([['I want to order coffee', :consumer ], ["I want to deliver coffee", :producer]]),
+          label: "What do you want to do?" %>
+      </div>
+
+      We need your phone number so that a buyer or seller can contact you about
+      their order.
+
+      <div class="field">
+        <%= f.text_field :phone, label: "Phone Number", placeholder: "000-0000-0000" %>
+      </div>
+
+      <div>
+        <%= f.text_field :name, label: "Your name" %>
+      </div>
+
+      <div>
+        <%= f.password_field :password, autocomplete: "off", label: (@validatable ? "Password (" + @minimum_password_length.to_s + " characters minimum)" : "Password") %>
+      </div>
+
+      <div>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+      </div>
+  <div class="col-sm-6 hidden-xs login-image">
+    <%= image_tag "woman_drinking_coffee.jpg", class: "img-responsive" %>
+    <div class="centered"><em>Image courtesty of Tetra Pak, used under a CC-BY-SA 2.0 license</em></div>
+  </div>
+</div>
