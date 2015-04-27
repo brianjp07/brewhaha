@@ -2,6 +2,7 @@
 %html
   %head
     %title= content_for?(:title) ? "Brewhaha | " + yield(:title) : "Brewhaha"
+    %meta{content: 'width: device-width, initial-scale: 1', name: 'viewport'}
     = stylesheet_link_tag    'application', media: 'all'
     = stylesheet_link_tag    'landing' if controller_name == 'landing'
     %link{:href=>"//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/sandstone/bootstrap.min.css", :rel=>"stylesheet"}
